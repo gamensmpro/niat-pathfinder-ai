@@ -1,7 +1,7 @@
 
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { openai } from "@/lib/openai";
+import { getOpenAI } from "@/lib/openai";
 
 export const runtime = "nodejs";
 
@@ -37,6 +37,7 @@ export async function POST(request: Request) {
     }
 
     const student = parsed.data;
+    const openai = getOpenAI();
 
     const response = await openai.chat.completions.create({
       model: process.env.OPENAI_MODEL || "gpt-4o-mini",
