@@ -206,7 +206,7 @@ Install:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/niat-pathfinder-ai.git
+git clone https://github.com/gamensmpro/niat-pathfinder-ai.git
 
 cd niat-pathfinder-ai
 ```
@@ -324,7 +324,8 @@ The application is designed for deployment on Vercel.
 
 Deployment URL:
 
-`https://your-deployment-url.vercel.app`
+`https://niat-pathfinder-ai.vercel.app/`
+ADMIN_ACCESS_KEY = 3b38f2d15a36b337cbaa196d7d39d088ccf6a653ebca60803193d40819675627
 
 ---
 
