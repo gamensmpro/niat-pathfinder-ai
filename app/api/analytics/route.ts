@@ -7,10 +7,14 @@ export const runtime = "nodejs";
 export async function POST(request: Request) {
   const key = request.headers.get("x-admin-key");
 
-  if (
-    !process.env.ADMIN_DASHBOARD_KEY ||
-    key !== process.env.ADMIN_DASHBOARD_KEY
-  ) {
+const expectedKey = process.env.ADMIN_ACCESS_KEY;
+
+if (!expectedKey || !key || key !== expectedKey) {
+  return NextResponse.json(
+    { error: "Unauthorized" },
+    { status: 401 }
+  );
+
     return NextResponse.json(
       { error: "Unauthorized" },
       { status: 401 }
