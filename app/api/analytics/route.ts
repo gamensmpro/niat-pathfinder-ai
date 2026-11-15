@@ -71,11 +71,17 @@ if (!expectedKey || !key || key !== expectedKey) {
     });
 
   } catch (error) {
-    console.error(error);
+  console.error("Analytics API error:", error);
 
-    return NextResponse.json(
-      { error: "Unable to retrieve analytics." },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json(
+    {
+      error: "Unable to retrieve analytics.",
+      details:
+        error instanceof Error
+          ? error.message
+          : "Unknown server error"
+    },
+    { status: 500 }
+  );
+}
 }
