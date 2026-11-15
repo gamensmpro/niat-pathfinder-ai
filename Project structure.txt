@@ -1,0 +1,25 @@
+niat-pathfinder-ai/
+├── app/
+│   ├── api/
+│   │   ├── generate/route.ts
+│   │   ├── leads/route.ts
+│   │   └── analytics/route.ts
+│   ├── dashboard/page.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── Assessment.tsx
+│   ├── CareerReport.tsx
+│   └── Dashboard.tsx
+├── lib/
+│   ├── openai.ts
+│   ├── supabase.ts
+│   ├── career.ts
+│   └── types.ts
+├── supabase/
+│   └── schema.sql
+├── .env.local.example
+├── package.json
+├── postcss.config.mjs
+└── tsconfig.json
