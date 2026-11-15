@@ -1,5 +1,4 @@
 // app/page.tsx
-import type { Assessment, CareerReport } from "@/lib/types";
 
 
 "use client";
