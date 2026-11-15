@@ -282,13 +282,13 @@ Secret/service-role key (only if required by your server-side implementation)
 
 Add them to your project's .env.local file:
 
-env
+```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
-
+```
 
 Never expose the service-role key in frontend code or commit it to GitHub.
 
@@ -300,7 +300,7 @@ Supabase Dashboard → SQL Editor → New Query
 
 Paste and execute:
 
-sql
+```sql
 CREATE TABLE IF NOT EXISTS student_assessments (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     student_name TEXT NOT NULL,
@@ -342,12 +342,13 @@ CREATE TABLE IF NOT EXISTS student_leads (
     consent BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
+```
 
 4. Insert Example Student Data
 
 Run the following SQL query to add sample student assessments.
 
-sql
+```sql
 INSERT INTO student_assessments
 (student_name, academic_stream, interest, experience_level,
  favourite_subject, career_goal, preferred_language)
@@ -388,9 +389,10 @@ VALUES
     'Software Developer',
     'English'
 );
+```
 
 5. Insert Example Career Pathways
-sql
+```sql
 INSERT INTO career_pathways
 (career_name, description, required_skills, beginner_project)
 VALUES
@@ -424,12 +426,13 @@ VALUES
     ARRAY['Networking', 'Linux', 'Python', 'Security'],
     'Build a basic password strength checker.'
 );
+```
 
 6. Insert Example Student Projects
 
 The following are fictional demonstration projects, not verified NIAT student achievements.
 
-sql
+```sql
 INSERT INTO student_projects
 (project_title, interest_area, description, skills_used, difficulty_level)
 VALUES
@@ -461,12 +464,13 @@ VALUES
     ARRAY['Python', 'Sensors', 'Robotics Simulation'],
     'Intermediate'
 );
+```
 
 7. Verify Data in Supabase
 
 Execute these queries:
 
-sql
+```sql
 SELECT * FROM student_assessments;
 
 SELECT * FROM career_pathways;
@@ -474,30 +478,34 @@ SELECT * FROM career_pathways;
 SELECT * FROM student_projects;
 
 SELECT * FROM student_leads;
+```
 
 
 You can also verify the number of inserted records:
 
-sql
+```sql
 SELECT
     (SELECT COUNT(*) FROM student_assessments) AS students,
     (SELECT COUNT(*) FROM career_pathways) AS careers,
     (SELECT COUNT(*) FROM student_projects) AS projects,
     (SELECT COUNT(*) FROM student_leads) AS leads;
-
+```
 
 Expected initial results:
 
+```
 Table	Example records
 student_assessments	4
 career_pathways	5
 student_projects	4
 student_leads	0
+```
+
 8. Connect Supabase to Next.js
 
 Install the Supabase JavaScript client:
 
-bash
+```bash
 npm install @supabase/supabase-js
 
 
@@ -516,11 +524,12 @@ export const supabase = createClient(
   supabaseUrl,
   supabaseKey
 );
+```
 
 
 Use the Supabase client from server-side API routes to retrieve career pathways:
 
-typescript
+```typescript
 import { supabase } from "@/lib/supabase";
 
 export async function getCareerPathways() {
@@ -534,7 +543,7 @@ export async function getCareerPathways() {
 
   return data;
 }
-
+```
 
 For production, configure Row Level Security (RLS), appropriate access policies, and server-side authorization before enabling database operations. Do not expose secret credentials in browser-accessible code.
 
@@ -544,7 +553,7 @@ The application can retrieve matching career pathways and project examples based
 
 Example:
 
-typescript
+```typescript
 const { data: careers } = await supabase
   .from("career_pathways")
   .select("*")
@@ -554,7 +563,7 @@ const { data: projects } = await supabase
   .from("student_projects")
   .select("*")
   .ilike("interest_area", "%Artificial Intelligence%");
-
+```
 
 Pass the retrieved records into your OpenAI API request as reference context.
 
