@@ -352,6 +352,10 @@
     z-index: 50;
   }
 
+  .z-\[100\] {
+    z-index: 100;
+  }
+
   .mx-auto {
     margin-inline: auto;
   }
@@ -434,6 +438,10 @@
 
   .h-\[500px\] {
     height: 500px;
+  }
+
+  .h-\[520px\] {
+    height: 520px;
   }
 
   .min-h-screen {
@@ -593,6 +601,10 @@
 
   .border-slate-800 {
     border-color: var(--color-slate-800);
+  }
+
+  .bg-\[\#0b1224\] {
+    background-color: #0b1224;
   }
 
   .bg-\[\#080d1b\] {

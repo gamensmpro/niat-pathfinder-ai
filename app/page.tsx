@@ -2,6 +2,8 @@
 
 import AIChat from "@/components/AIChat";
 
+import LiveChat from "@/components/LiveChat";
+
 import { useState } from "react";
 import {
   Users,
@@ -244,6 +246,7 @@ export default function Dashboard() {
             {loading ? "Loading..." : "Access dashboard"}
           </button>
         </div>
+        <LiveChat />
       </main>
     );
   }

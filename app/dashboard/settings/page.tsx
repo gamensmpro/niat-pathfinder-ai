@@ -1,6 +1,8 @@
 
 "use client";
 
+import LiveChat from "@/components/LiveChat";
+
 import { useState } from "react";
 import { Lock, ShieldCheck } from "lucide-react";
 
@@ -110,6 +112,7 @@ export default function AdminSettings() {
 
         </div>
       </div>
+      <LiveChat />
     </main>
   );
 }

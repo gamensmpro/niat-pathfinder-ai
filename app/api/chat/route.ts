@@ -1,6 +1,8 @@
 
-import OpenAI from "openai";
 import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
+
+export const runtime = "nodejs";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -8,22 +10,24 @@ const openai = new OpenAI({
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages } = await request.json();
-
-    if (!Array.isArray(messages) || messages.length === 0) {
+    if (!process.env.OPENAI_API_KEY) {
       return NextResponse.json(
-        { error: "Messages are required." },
-        { status: 400 }
+        { error: "AI service is not configured." },
+        { status: 503 }
       );
     }
 
+    const { messages } = await request.json();
+
     if (
+      !Array.isArray(messages) ||
+      messages.length === 0 ||
       messages.length > 30 ||
       messages.some(
-        (m) =>
-          !["user", "assistant"].includes(m.role) ||
-          typeof m.content !== "string" ||
-          m.content.length > 4000
+        (item) =>
+          !["user", "assistant"].includes(item.role) ||
+          typeof item.content !== "string" ||
+          item.content.length > 4000
       )
     ) {
       return NextResponse.json(
@@ -32,38 +36,73 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await openai.responses.create({
-      model: "gpt-5",
-      instructions: `
-        You are Pathfinder AI, a friendly student career guidance assistant.
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: `
+You are NIAT Pathfinder AI, an education information assistant.
 
-        Help students with:
-        - Career guidance
-        - Choosing educational streams
-        - Technology and AI careers
-        - Skills and learning paths
-        - College and course guidance
-        - Personal development
+Help students and parents understand:
+- NIAT programs
+- Admissions
+- Curriculum
+- Career opportunities
+- Student development
+- Parent concerns
 
-        Keep answers friendly, clear and practical.
-        Ask clarifying questions when necessary.
-        Never guarantee jobs, admissions or salaries.
-      `,
-      input: messages.map((m: {role: string; content: string}) => ({
-        role: m.role as "user" | "assistant",
-        content: m.content,
-      })),
+Be friendly, professional and concise.
+
+Never invent:
+- Admission guarantees
+- Placement percentages
+- Salary packages
+- Fees or scholarships
+- University affiliations
+- Program guarantees
+
+If information is unavailable, say so honestly and recommend speaking with an authorized NIAT counsellor.
+
+Do not claim to be a human counsellor.
+          `
+        },
+        ...messages.map((item: {
+          role: "user" | "assistant";
+          content: string;
+        }) => ({
+          role: item.role,
+          content: item.content
+        }))
+      ],
+      temperature: 0.5,
+      max_tokens: 500
     });
 
-    return NextResponse.json({
-      reply: response.output_text,
-    });
-  } catch (error) {
-    console.error("AI chat error:", error);
+    const reply =
+      completion.choices[0]?.message?.content ||
+      "Sorry, I couldn't generate a response.";
 
-    return NextResponse.json(
-      { error: "Unable to process your message." },
-      { status: 500 }
-    );
-  }
+    return NextResponse.json({ reply });
+
+  
+} catch (error: unknown) {
+  console.error("AI chat error:", error);
+
+  const message =
+    error instanceof Error
+      ? error.message
+      : "Unknown AI service error";
+
+  return NextResponse.json(
+    {
+      error: "AI chat request failed.",
+      details:
+        process.env.NODE_ENV === "development"
+          ? message
+          : undefined
+    },
+    { status: 500 }
+  );
+}
 }

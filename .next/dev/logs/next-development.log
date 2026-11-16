@@ -3,3 +3,21 @@
 {"timestamp":"00:05:03.018","source":"Server","level":"LOG","message":"  Reload env: .env.local"}
 {"timestamp":"00:05:06.835","source":"Server","level":"LOG","message":"  Reload env: .env.local"}
 {"timestamp":"00:05:12.913","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:05:45.865","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:12:59.982","source":"Server","level":"LOG","message":"✓ Compiled in 119ms"}
+{"timestamp":"00:14:40.017","source":"Server","level":"LOG","message":"✓ Compiled in 124ms"}
+{"timestamp":"00:14:41.798","source":"Server","level":"LOG","message":"✓ Compiled in 47ms"}
+{"timestamp":"00:15:49.820","source":"Server","level":"LOG","message":"✓ Compiled in 136ms"}
+{"timestamp":"00:17:08.812","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:17:39.427","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:17:50.347","source":"Server","level":"ERROR","message":"AI chat error: Error: 429 You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/."}
+{"timestamp":"00:18:00.815","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:18:09.854","source":"Server","level":"ERROR","message":"AI chat error: Error: 429 You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/."}
+{"timestamp":"00:19:40.619","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:20:48.195","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:21:46.372","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:21:55.057","source":"Server","level":"ERROR","message":"AI chat error: Error: 429 You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/."}
+{"timestamp":"00:21:58.030","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:22:05.453","source":"Server","level":"ERROR","message":"AI chat error: Error: 429 You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/."}
+{"timestamp":"00:26:26.529","source":"Server","level":"LOG","message":"✓ Compiled in 126ms"}
+{"timestamp":"00:26:42.922","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
