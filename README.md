@@ -658,8 +658,7 @@ The application is designed for deployment on Vercel.
 
 Deployment URL:
 
-`https://niat-pathfinder-ai.vercel.app/`
-ADMIN_ACCESS_KEY = 3b38f2d15a36b337cbaa196d7d39d088ccf6a653ebca60803193d40819675627
+`https://your-app.vercel.app/`
 
 ---
 
