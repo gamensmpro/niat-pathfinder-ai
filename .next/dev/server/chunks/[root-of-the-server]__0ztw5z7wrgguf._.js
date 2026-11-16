@@ -77,86 +77,74 @@ module.exports = mod;
 __turbopack_context__.s([
     "POST",
     ()=>POST,
+    "dynamic",
+    ()=>dynamic,
     "runtime",
     ()=>runtime
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$object$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v3/external.js [app-route] (ecmascript) <export * as z .object>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v3/external.js [app-route] (ecmascript) <export * as z .string>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$array$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v3/external.js [app-route] (ecmascript) <export * as z .array>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$boolean$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v3/external.js [app-route] (ecmascript) <export * as z .boolean>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/supabase.ts [app-route] (ecmascript)");
 ;
 ;
-;
 const runtime = "nodejs";
-const schema = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$object$3e$__["z"].object({
-    studentName: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().trim().min(1).max(60),
-    email: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().email().max(150),
-    phone: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(20).optional(),
-    city: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().trim().min(1).max(80),
-    stream: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(30),
-    interests: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$array$3e$__["z"].array(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(60)).min(1).max(5),
-    experience: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(60),
-    favoriteSubject: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(60),
-    careerGoal: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(100),
-    language: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$string$3e$__["z"].string().max(30),
-    guardianConsent: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z__$2e$boolean$3e$__["z"].boolean().default(false)
-});
-async function POST(request) {
+const dynamic = "force-dynamic";
+async function POST(req) {
     try {
-        // Admin authentication
-        const key = request.headers.get("x-admin-key");
+        // Verify admin access
+        const key = req.headers.get("x-admin-key");
         const expectedKey = process.env.ADMIN_ACCESS_KEY;
         if (!expectedKey || key !== expectedKey) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: "Unauthorized"
+                error: "Unauthorized access"
             }, {
                 status: 401
             });
         }
-        const parsed = schema.safeParse(await request.json());
-        if (!parsed.success) {
+        const student = await req.json();
+        // Validate required fields
+        if (!student.studentName?.trim() || !student.email?.trim() || student.consent !== true || !Array.isArray(student.interests)) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-                error: "Please enter valid student details."
+                error: "Valid name, email, interests and consent are required."
             }, {
                 status: 400
             });
         }
-        const student = parsed.data;
-        const score = (student.interests.length >= 2 ? 20 : 10) + 20 + 10 + 15 + 15;
-        const category = score >= 80 ? "high-intent" : score >= 50 ? "medium-intent" : "early-interest";
         const supabase = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getSupabase"])();
+        // Insert into the same table used by analytics
         const { data, error } = await supabase.from("pathfinder_leads").insert({
-            student_name: student.studentName,
-            email: student.email,
-            phone: student.phone || null,
-            city: student.city,
-            stream: student.stream,
+            student_name: student.studentName.trim(),
+            email: student.email.trim(),
+            phone: student.phone?.trim() || null,
+            city: student.city?.trim() || null,
+            stream: student.stream || null,
             interests: student.interests,
-            experience: student.experience,
-            favorite_subject: student.favoriteSubject,
-            career_goal: student.careerGoal,
-            language: student.language,
-            consent: true,
-            guardian_consent: student.guardianConsent,
-            lead_score: score,
-            lead_category: category,
-            report: null
+            experience: student.experience || null,
+            favorite_subject: student.favoriteSubject || null,
+            career_goal: student.careerGoal || null,
+            language: student.language || "English",
+            guardian_consent: student.guardianConsent === true,
+            consent: student.consent
         }).select().single();
         if (error) {
-            console.error("Student insertion error:", error.message);
-            throw error;
+            console.error("Add student Supabase error:", error);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: "Unable to add student.",
+                details: ("TURBOPACK compile-time truthy", 1) ? error.message : "TURBOPACK unreachable"
+            }, {
+                status: 500
+            });
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             success: true,
-            message: "Student added successfully.",
+            message: "Student added successfully",
             student: data
+        }, {
+            status: 201
         });
     } catch (error) {
-        console.error("Add student API error:", error);
+        console.error("Add student error:", error);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: "Unable to add student."
+            error: "Unable to add student to Supabase."
         }, {
             status: 500
         });
