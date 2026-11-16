@@ -93,7 +93,7 @@ async function POST(req) {
         // Verify admin access
         const key = req.headers.get("x-admin-key");
         const expectedKey = process.env.ADMIN_ACCESS_KEY;
-        if (!expectedKey || key !== expectedKey) {
+        if (!expectedKey || !key || key !== expectedKey) {
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: "Unauthorized access"
             }, {

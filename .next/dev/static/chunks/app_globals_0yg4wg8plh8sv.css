@@ -40,6 +40,7 @@
       "Courier New", monospace;
     --color-red-400: #ff6568;
     --color-red-500: #fb2c36;
+    --color-red-950: #460809;
     --color-cyan-400: #00d2ef;
     --color-cyan-500: #00b7d7;
     --color-slate-400: #90a1b9;
@@ -76,6 +77,7 @@
     :root, :host {
       --color-red-400: lab(63.7053% 60.7449 31.3109);
       --color-red-500: lab(55.4814% 75.0732 48.8528);
+      --color-red-950: lab(13.003% 29.04 16.7519);
       --color-cyan-400: lab(76.6045% -40.9406 -29.6231);
       --color-cyan-500: lab(67.805% -35.3952 -30.2018);
       --color-slate-400: lab(65.5349% -2.25151 -14.5072);
@@ -617,6 +619,10 @@
 
   .bg-cyan-500 {
     background-color: var(--color-cyan-500);
+  }
+
+  .bg-red-950 {
+    background-color: var(--color-red-950);
   }
 
   .bg-slate-800 {

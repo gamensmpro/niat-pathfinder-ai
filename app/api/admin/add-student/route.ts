@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     const key = req.headers.get("x-admin-key");
     const expectedKey = process.env.ADMIN_ACCESS_KEY;
 
-    if (!expectedKey || key !== expectedKey) {
+    if (!expectedKey || !key || key !== expectedKey) {
       return NextResponse.json(
         { error: "Unauthorized access" },
         { status: 401 }
