@@ -206,7 +206,7 @@ Install:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/niat-pathfinder-ai.git
+git clone https://github.com/your-name/niat-pathfinder-ai.git
 
 cd niat-pathfinder-ai
 ```
@@ -250,6 +250,340 @@ http://localhost:3000
 ```bash
 npm run build
 ```
+
+---
+🗄️ Supabase Setup & Example Data Insertion
+
+PathFinder AI uses Supabase as its backend database to store student assessments, career pathways, project examples, and lead information.
+
+This section explains how to configure Supabase and insert sample data for testing the application.
+
+1. Create a Supabase Project
+Visit https://supabase.com/
+Sign in or create an account.
+Click New Project.
+Enter the project name: niat-pathfinder-ai.
+Set a secure database password.
+Select a region close to your target audience.
+Click Create New Project.
+2. Get Supabase API Credentials
+
+Open your Supabase project.
+
+Navigate to:
+
+Project Settings → API
+
+Copy the following credentials:
+
+Project URL
+Publishable/anon key
+Secret/service-role key (only if required by your server-side implementation)
+
+Add them to your project's .env.local file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+```
+
+Never expose the service-role key in frontend code or commit it to GitHub.
+
+3. Create Database Tables
+
+Open:
+
+Supabase Dashboard → SQL Editor → New Query
+
+Paste and execute:
+
+```sql
+CREATE TABLE IF NOT EXISTS student_assessments (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_name TEXT NOT NULL,
+    academic_stream TEXT,
+    interest TEXT,
+    experience_level TEXT,
+    favourite_subject TEXT,
+    career_goal TEXT,
+    preferred_language TEXT DEFAULT 'English',
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS career_pathways (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    career_name TEXT NOT NULL,
+    description TEXT,
+    required_skills TEXT[],
+    beginner_project TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS student_projects (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    project_title TEXT NOT NULL,
+    interest_area TEXT,
+    description TEXT,
+    skills_used TEXT[],
+    difficulty_level TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS student_leads (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_name TEXT NOT NULL,
+    phone TEXT,
+    city TEXT,
+    interest TEXT,
+    preferred_language TEXT,
+    consent BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+```
+
+4. Insert Example Student Data
+
+Run the following SQL query to add sample student assessments.
+
+```sql
+INSERT INTO student_assessments
+(student_name, academic_stream, interest, experience_level,
+ favourite_subject, career_goal, preferred_language)
+VALUES
+(
+    'Rahul',
+    'MPC',
+    'Artificial Intelligence',
+    'Beginner',
+    'Mathematics',
+    'AI Engineer',
+    'English'
+),
+(
+    'Priya',
+    'MPC',
+    'Robotics',
+    'Intermediate',
+    'Physics',
+    'Robotics Engineer',
+    'Telugu'
+),
+(
+    'Arjun',
+    'Commerce',
+    'Data Science',
+    'Beginner',
+    'Mathematics',
+    'Data Analyst',
+    'Hindi'
+),
+(
+    'Sneha',
+    'BiPC',
+    'Software Development',
+    'Beginner',
+    'Biology',
+    'Software Developer',
+    'English'
+);
+```
+
+5. Insert Example Career Pathways
+```sql
+INSERT INTO career_pathways
+(career_name, description, required_skills, beginner_project)
+VALUES
+(
+    'AI Engineer',
+    'Explore artificial intelligence and machine learning.',
+    ARRAY['Python', 'Mathematics', 'Machine Learning', 'APIs'],
+    'Build an AI-powered question answering application.'
+),
+(
+    'Software Developer',
+    'Learn to design and develop software applications.',
+    ARRAY['HTML', 'CSS', 'JavaScript', 'React'],
+    'Build a personal portfolio website.'
+),
+(
+    'Data Analyst',
+    'Learn to analyze data and generate insights.',
+    ARRAY['Python', 'SQL', 'Statistics', 'Visualization'],
+    'Build a student performance dashboard.'
+),
+(
+    'Robotics Engineer',
+    'Explore robotics, electronics and automation.',
+    ARRAY['Python', 'Electronics', 'Sensors', 'Programming'],
+    'Build an obstacle detection simulation.'
+),
+(
+    'Cybersecurity Analyst',
+    'Explore defensive cybersecurity and network security.',
+    ARRAY['Networking', 'Linux', 'Python', 'Security'],
+    'Build a basic password strength checker.'
+);
+```
+
+6. Insert Example Student Projects
+
+The following are fictional demonstration projects, not verified NIAT student achievements.
+
+```sql
+INSERT INTO student_projects
+(project_title, interest_area, description, skills_used, difficulty_level)
+VALUES
+(
+    'AI Study Assistant',
+    'Artificial Intelligence',
+    'An AI-powered study assistant that generates practice questions.',
+    ARRAY['Python', 'AI APIs', 'Prompt Engineering'],
+    'Beginner'
+),
+(
+    'Personal Portfolio Website',
+    'Software Development',
+    'A responsive website to showcase projects and technical skills.',
+    ARRAY['HTML', 'CSS', 'JavaScript'],
+    'Beginner'
+),
+(
+    'Student Performance Dashboard',
+    'Data Science',
+    'A dashboard displaying student performance using sample data.',
+    ARRAY['Python', 'SQL', 'Data Visualization'],
+    'Intermediate'
+),
+(
+    'Smart Obstacle Detection',
+    'Robotics',
+    'A simulated robotic system that detects obstacles.',
+    ARRAY['Python', 'Sensors', 'Robotics Simulation'],
+    'Intermediate'
+);
+```
+
+7. Verify Data in Supabase
+
+Execute these queries:
+
+```sql
+SELECT * FROM student_assessments;
+
+SELECT * FROM career_pathways;
+
+SELECT * FROM student_projects;
+
+SELECT * FROM student_leads;
+```
+
+
+You can also verify the number of inserted records:
+
+```sql
+SELECT
+    (SELECT COUNT(*) FROM student_assessments) AS students,
+    (SELECT COUNT(*) FROM career_pathways) AS careers,
+    (SELECT COUNT(*) FROM student_projects) AS projects,
+    (SELECT COUNT(*) FROM student_leads) AS leads;
+```
+
+Expected initial results:
+
+```
+Table	Example records
+student_assessments	4
+career_pathways	5
+student_projects	4
+student_leads	0
+```
+
+8. Connect Supabase to Next.js
+
+Install the Supabase JavaScript client:
+
+```bash
+npm install @supabase/supabase-js
+
+
+Create lib/supabase.ts:
+
+typescript
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL!;
+
+const supabaseKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(
+  supabaseUrl,
+  supabaseKey
+);
+```
+
+
+Use the Supabase client from server-side API routes to retrieve career pathways:
+
+```typescript
+import { supabase } from "@/lib/supabase";
+
+export async function getCareerPathways() {
+  const { data, error } = await supabase
+    .from("career_pathways")
+    .select("*");
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+```
+
+For production, configure Row Level Security (RLS), appropriate access policies, and server-side authorization before enabling database operations. Do not expose secret credentials in browser-accessible code.
+
+9. Connect Example Data to AI Recommendations
+
+The application can retrieve matching career pathways and project examples based on the student's selected interest.
+
+Example:
+
+```typescript
+const { data: careers } = await supabase
+  .from("career_pathways")
+  .select("*")
+  .ilike("career_name", "%AI%");
+
+const { data: projects } = await supabase
+  .from("student_projects")
+  .select("*")
+  .ilike("interest_area", "%Artificial Intelligence%");
+```
+
+Pass the retrieved records into your OpenAI API request as reference context.
+
+This allows the AI to generate recommendations using available database information instead of relying entirely on generic model knowledge.
+
+10. Supabase Dashboard
+
+After inserting the example data, visit:
+
+Supabase Dashboard → Table Editor
+
+You should be able to view:
+
+Student assessment records
+Career pathway records
+Student project examples
+Student lead records
+
+Final Result: Supabase is configured as the data layer for PathFinder AI, with sample student profiles, career recommendations, and project examples available for development and testing.
+---
 
 ---
 
@@ -324,7 +658,7 @@ The application is designed for deployment on Vercel.
 
 Deployment URL:
 
-`https://your-deployment-url.vercel.app`
+`https://your-app.vercel.app/`
 
 ---
 
