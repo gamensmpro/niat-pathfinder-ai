@@ -1,6 +1,7 @@
 {
   "version": 1,
   "functions": {
+    "/api/admin/change-key": {},
     "/api/analytics": {},
     "/api/generate": {},
     "/api/leads": {}

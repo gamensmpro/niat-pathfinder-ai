@@ -1,9 +1,14 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/api/admin/add-student/route": "/api/admin/add-student",
+  "/api/admin/change-key/route": "/api/admin/change-key",
+  "/api/admin/students/[id]/route": "/api/admin/students/[id]",
   "/api/analytics/route": "/api/analytics",
+  "/api/chat/route": "/api/chat",
   "/api/generate/route": "/api/generate",
   "/api/leads/route": "/api/leads",
   "/dashboard/page": "/dashboard",
+  "/dashboard/settings/page": "/dashboard/settings",
   "/page": "/"
 }

@@ -19,7 +19,7 @@ niat-pathfinder-ai/
 │   └── types.ts
 ├── supabase/
 │   └── schema.sql
-├── .env.local.example
+├── .env.local
 ├── package.json
 ├── postcss.config.mjs
 └── tsconfig.json

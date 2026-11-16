@@ -21,7 +21,16 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/api/admin/students/[id]",
+      "regex": "^/api/admin/students/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/students/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -42,10 +51,28 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/admin/add-student",
+      "regex": "^/api/admin/add\\-student(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/add\\-student(?:/)?$"
+    },
+    {
+      "page": "/api/admin/change-key",
+      "regex": "^/api/admin/change\\-key(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/change\\-key(?:/)?$"
+    },
+    {
       "page": "/api/analytics",
       "regex": "^/api/analytics(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/analytics(?:/)?$"
+    },
+    {
+      "page": "/api/chat",
+      "regex": "^/api/chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/chat(?:/)?$"
     },
     {
       "page": "/api/generate",
@@ -64,6 +91,12 @@
       "regex": "^/dashboard(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/dashboard/settings",
+      "regex": "^/dashboard/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard/settings(?:/)?$"
     }
   ],
   "dataRoutes": [],
