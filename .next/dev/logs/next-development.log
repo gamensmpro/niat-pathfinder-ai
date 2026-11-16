@@ -21,3 +21,7 @@
 {"timestamp":"00:22:05.453","source":"Server","level":"ERROR","message":"AI chat error: Error: 429 You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/."}
 {"timestamp":"00:26:26.529","source":"Server","level":"LOG","message":"✓ Compiled in 126ms"}
 {"timestamp":"00:26:42.922","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:29:19.940","source":"Server","level":"ERROR","message":"Delete student Supabase error: {}"}
+{"timestamp":"00:29:21.197","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:31:26.137","source":"Server","level":"LOG","message":"  Reload env: .env.local"}
+{"timestamp":"00:32:10.461","source":"Server","level":"LOG","message":"  Reload env: .env.local"}
