@@ -1,13 +1,15 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-export function getSupabase() {
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+let supabaseClient: ReturnType<typeof createClient> | null = null;
 
-  if (!supabaseUrl || !supabaseKey) {
-    throw new Error("Missing Supabase environment variables");
+export function getSupabase() {
+  if (!supabaseClient) {
+    supabaseClient = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
   }
 
-  return createClient(supabaseUrl, supabaseKey);
+  return supabaseClient;
 }

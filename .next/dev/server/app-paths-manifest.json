@@ -1,7 +1,5 @@
 {
-  "/api/admin/add-student/route": "app/api/admin/add-student/route.js",
-  "/api/admin/students/[id]/route": "app/api/admin/students/[id]/route.js",
   "/api/analytics/route": "app/api/analytics/route.js",
-  "/api/chat/route": "app/api/chat/route.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/page": "app/page.js"
 }
